@@ -1,6 +1,7 @@
 <template>
   <div id="sidebar">
     <div class="icons">
+    <avatar></avatar>
       <router-link to="/note/1" title="笔记"><i class="iconfont icon-note"></i></router-link>
       <router-link to="/notebooks" title="笔记本"><i class="iconfont icon-notebook"></i></router-link>
       <router-link to="/trash/2" title="回收站"><i class="iconfont icon-trash"></i></router-link> 
@@ -12,8 +13,12 @@
 </template>
 
 <script>
-  export default {
-  }  
+    import avatar from '@/components/Avatar'
+    export default {
+        components: {
+            avatar
+        }
+    }  
 
 </script>
 
