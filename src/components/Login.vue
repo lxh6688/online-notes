@@ -31,6 +31,13 @@
 </template>
 
 <script>
+import request from '@/helpers/request'
+
+request('/auth/login', 'Post', {username: 'hunger', password:'123456'})
+    .then(data=>{
+        console.log(data)
+    })
+
 export default {
     name:'Login',
     data(){
@@ -53,12 +60,12 @@ export default {
     },
     methods: {
         showRegister(){
-            this.isShowRegister = false
-            this.isShowLogin = true
-        },
-        showLogin(){
             this.isShowRegister = true
             this.isShowLogin = false
+        },
+        showLogin(){
+            this.isShowRegister = false
+            this.isShowLogin = true
         },
         onRegister(){
             let result1 = this.validUsername(this.register.username)
