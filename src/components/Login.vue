@@ -33,7 +33,7 @@
 <script>
 import request from '@/helpers/request'
 
-request('/auth/login', 'Post', {username: 'hunger', password:'123456'})
+request('/auth/login')
     .then(data=>{
         console.log(data)
     })
@@ -86,6 +86,13 @@ export default {
             this.register.notice = ''
 
             console.log('开始注册, 用户名是：', this.register.username, '密码是：', this.register.password)
+            request('/auth/login', 'Post', 
+            {
+                username: this.register.username, 
+                password:this.register.password
+            }).then(data=>{
+                console.log(data)
+            })
         },
 
         onLogin() {
@@ -107,6 +114,13 @@ export default {
             this.login.notice = ''
 
             console.log('开始登录, 用户名是：', this.login.username, '密码是：', this.login.password)
+            request('/auth/login', 'Post', 
+            {
+                username: this.login.username, 
+                password:this.login.password
+            }).then(data=>{
+                console.log(data)
+            })
         },
 
         validUsername(username){
